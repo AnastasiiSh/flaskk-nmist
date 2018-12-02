@@ -83,15 +83,15 @@
   }
 }());
 
-$(".myButton").click(function(){
-      var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-      var canvasObj = document.getElementById("canvas");
-      var img = canvasObj.toDataURL();
-      $.ajax({
-        type: "POST",
-        url: $SCRIPT_ROOT + "/predict/",
-        data: img,
-        success: function(data){
-          $('#result').text(' Predicted Output: '+data);}
-      });
-    });
+//$(".myButton").click(function(){
+      //var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+     // var canvasObj = document.getElementById("canvas");
+     // var img = canvasObj.toDataURL();
+     // $.ajax({
+       // type: "POST",
+     //   url: $SCRIPT_ROOT + "/predict/",
+      //  data: img,
+       // success: function(data){
+     //     $('#result').text(' Predicted Output: '+data);}
+  //    });
+ //   });
