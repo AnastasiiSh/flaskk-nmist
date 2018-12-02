@@ -66,7 +66,7 @@
     });
     
     /* LINE WIDTH */
-
+/*
     var slider = document.getElementById("myRange");
     var output = document.getElementById("sliderValue");
     output.innerHTML = slider.value;
@@ -80,6 +80,7 @@
     {
       context.lineWidth = $( this ).val();
     });
+     */ 
   }
 }());
 
