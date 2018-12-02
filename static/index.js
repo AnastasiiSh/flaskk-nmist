@@ -1,8 +1,7 @@
-function
 (function()
 {
      
-  var canvas = document.querySelector("#canvas");
+  var canvas = document.body.querySelector("#canvas");
   var context = canvas.getContext("2d");
   canvas.width = 280;
   canvas.height = 280;
@@ -75,7 +74,7 @@ function
 
     slider.oninput = function() {
       output.innerHTML = this.value;
-      context.lineWidth = $( this ).val();
+      context.lineWidth = $(this).val();
     }
     
     $( "#lineWidth" ).change(function()
