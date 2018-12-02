@@ -1,8 +1,10 @@
+window.document.getElementById("demo").innerHTML = 555 + 6;
+
 (function()
 {
-     document.getElementById("demo").innerHTML = 555 + 6;
-  var canvas = document.querySelector( "#canvas" );
-  var context = canvas.getContext( "2d" );
+     
+  var canvas = window.document.querySelector("#canvas");
+  var context = canvas.getContext("2d");
   canvas.width = 280;
   canvas.height = 280;
 
