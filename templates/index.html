@@ -60,7 +60,7 @@
     <script type="text/javascript">
     $(".myButton").click(function(){
       var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-      var canvasObj = window.document.getElementById("canvas");
+      var canvasObj = document.getElementById("canvas");
       var img = canvasObj.toDataURL();
       $.ajax({
         type: "POST",
