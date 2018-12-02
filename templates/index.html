@@ -13,6 +13,22 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <script type="text/javascript">
+     
+    $(".myButton").click(function(){
+      var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+      var canvasObj = document.getElementById("canvas");
+      var img = canvasObj.toDataURL();
+      $.ajax({
+        type: "POST",
+        url: $SCRIPT_ROOT + "/predict/",
+        data: img,
+        success: function(data){
+          $('#result').text(' Predicted Output: '+data);}
+      });
+    });
+   
+   	</script>
   </head>
 
   <body>
@@ -22,7 +38,7 @@
         <nav>
          
         </nav>
-        <h3 class="text-muted" style="color: #249da1;">irst Tested Handwritten CNN</h3>
+        <h3 class="text-muted" style="color: #249da1;">First Tested Handwritten CNN</h3>
       </div>
 
       <div class="jumbotron">
@@ -54,110 +70,11 @@
 
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<!--
+
     <script src="{{ url_for('static',filename='index.js') }}"></script>
--->
+<!--
     <script type="text/javascript">
-     (function()
-{
-  var canvas = document.querySelector( "#canvas" );
-  var context = canvas.getContext( "2d" );
-  canvas.width = 280;
-  canvas.height = 280;
-
-  var Mouse = { x: 0, y: 0 };
-  var lastMouse = { x: 0, y: 0 };
-  context.fillStyle="black";
-  context.fillRect(0,0,canvas.width,canvas.height);
-  context.color = "white";
-  context.lineWidth = 15;
-    context.lineJoin = context.lineCap = 'round';
-  
-  debug();
-
-  canvas.addEventListener( "mousemove", function( e )
-  {
-    lastMouse.x = Mouse.x;
-    lastMouse.y = Mouse.y;
-
-    Mouse.x = e.pageX - this.offsetLeft;
-    Mouse.y = e.pageY - this.offsetTop;
-
-  }, false );
-
-  canvas.addEventListener( "mousedown", function( e )
-  {
-    canvas.addEventListener( "mousemove", onPaint, false );
-
-  }, false );
-
-  canvas.addEventListener( "mouseup", function()
-  {
-    canvas.removeEventListener( "mousemove", onPaint, false );
-
-  }, false );
-
-  var onPaint = function()
-  {	
-    context.lineWidth = context.lineWidth;
-    context.lineJoin = "round";
-    context.lineCap = "round";
-    context.strokeStyle = context.color;
-  
-    context.beginPath();
-    context.moveTo( lastMouse.x, lastMouse.y );
-    context.lineTo( Mouse.x, Mouse.y );
-    context.closePath();
-    context.stroke();
-  };
-
-  function debug()
-  {
-    /* CLEAR BUTTON */
-    var clearButton = $( "#clearButton" );
-    
-    clearButton.on( "click", function()
-    {
-      
-        context.clearRect( 0, 0, 280, 280 );
-        context.fillStyle="black";
-        context.fillRect(0,0,canvas.width,canvas.height);
-      
-    });
-    
-    /* LINE WIDTH */
-
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("sliderValue");
-    output.innerHTML = slider.value;
-
-    slider.oninput = function() {
-      output.innerHTML = this.value;
-      context.lineWidth = $( this ).val();
-    }
-    
-    $( "#lineWidth" ).change(function()
-    {
-      context.lineWidth = $( this ).val();
-    });
-  }
-}());
-
-//$(".myButton").click(function(){
-      //var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-     // var canvasObj = document.getElementById("canvas");
-     // var img = canvasObj.toDataURL();
-     // $.ajax({
-       // type: "POST",
-     //   url: $SCRIPT_ROOT + "/predict/",
-      //  data: img,
-       // success: function(data){
-     //     $('#result').text(' Predicted Output: '+data);}
-  //    });
- //   });
-        
-        
-        
+     
     $(".myButton").click(function(){
       var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
       var canvasObj = document.getElementById("canvas");
@@ -172,6 +89,6 @@
     });
    
    	</script>
-
+-->
   </body>
 </html>
