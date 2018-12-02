@@ -25,7 +25,7 @@ import sys
 import os
 
 # tell our app where our saved model is
-sys.path.append(os.path.abspath("/Users/anastasii/Mash_Lean/mnist_project_py36/deploy_mnist_flask/model"))
+sys.path.append(os.path.abspath("/usr/local/bin/python-getting-started/deploy_mnist_flask/model"))
 
 from load import *
 
