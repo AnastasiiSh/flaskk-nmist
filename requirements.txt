@@ -48,7 +48,7 @@ nbconvert==5.4.0
 nbformat==4.4.0
 netaddr==0.7.19
 netifaces==0.10.7
-numpy==1.15.2
+numpy==1.22.0
 openpyxl==2.5.12
 oslo.i18n==3.22.1
 oslo.utils==3.37.1
