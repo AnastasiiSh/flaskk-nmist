@@ -51,7 +51,7 @@ netifaces==0.10.7
 numpy==1.15.2
 openpyxl==2.5.12
 oslo.i18n==3.22.1
-oslo.utils==3.37.1
+oslo.utils==4.10.1
 pandocfilters==1.4.2
 parso==0.3.1
 pbr==5.1.1
